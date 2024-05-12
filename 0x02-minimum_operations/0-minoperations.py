@@ -4,14 +4,11 @@
 
 def minOperations(n):
     """Function to find the minimum number of operations needed."""
-    if n == 1:
-        return 0
-    
-    dp = [0] * (n+1)
-    for i in range(2, n+1):
-        dp[i] = float('inf')
-        for j in range(1, i):
-            if i % j == 0:
-                dp[i] = min(dp[i], dp[j] + i // j)
-                
-    return dp[n] if dp[n] != float('inf') else 0
+    min_operations = 0
+    divisor = 2
+    while isinstance(n, int) and n > 1:
+        while n % divisor:
+            divisor += 1
+        min_operations += divisor
+        n = int(n / divisor)
+    return min_operations
