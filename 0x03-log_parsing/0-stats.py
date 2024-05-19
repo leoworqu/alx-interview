@@ -1,22 +1,12 @@
 #!/usr/bin/python3
-"""Input stats"""
+"""Script to get stats from a request"""
 
 import sys
 
 codes = {}
-status_codes = [
-    '200',
-    '301',
-    '400',
-    '401',
-    '403',
-    '404',
-    '405',
-    '500'
-]
-sizes = 0
+status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
 count = 0
-
+size = 0
 
 try:
     for ln in sys.stdin:
