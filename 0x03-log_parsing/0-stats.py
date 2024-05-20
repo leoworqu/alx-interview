@@ -1,41 +1,30 @@
 #!/usr/bin/python3
-"""Input stats"""
+""" Funct that count line by li"""
 import sys
 
-stats = {
-    '200': 0,
-    '301': 0,
-    '400': 0,
-    '401': 0,
-    '403': 0,
-    '404': 0,
-    '405': 0,
-    '500': 0
-}
-sizes = [0]
 
-
-def print_stats():
-    print('File size: {}'.format(sum(sizes)))
-    for s_code, count in sorted(stats.items()):
-        if count:
-            print('{}: {}'.format(s_code, count))
-
-
+i = 0
+FileSize = 0
+stats = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+code = ['200', '301', '400', '401', '403', '404', '405', '500']
 try:
-    for i, line in enumerate(sys.stdin, start=1):
-        matches = line.rstrip().split()
-        try:
-            status_code = matches[-2]
-            file_size = matches[-1]
-            if status_code in stats.keys():
-                stats[status_code] += 1
-            sizes.append(int(file_size))
-        except Exception:
-            pass
+    for line in sys.stdin:
+        i += 1
+        sp = line.split(' ')
+        if len(sp) > 2:
+            FileSize += int(sp[-1])
+            if sp[-2] in stats:
+                stats[sp[-2]] += 1
         if i % 10 == 0:
-            print_stats()
-    print_stats()
+            print("File size: {}".format(FileSize))
+            for f in code:
+                if stats[f]:
+                    print("{}: {}".format(f, stats[f]))
 except KeyboardInterrupt:
-    print_stats()
-    raise
+    pass
+finally:
+    print("File size: {}".format(FileSize))
+    for f in code:
+        if stats[f]:
+            print("{}: {}".format(f, stats[f]))
