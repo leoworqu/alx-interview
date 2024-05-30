@@ -41,9 +41,12 @@ def solve_n_queens(n):
 def print_solutions(n):
     solutions = solve_n_queens(n)
     for solution in solutions:
-        for row in solution:
-            print(row)
-        print()
+        queen_positions = []
+        for row_idx, row in enumerate(solution):
+            for col_idx, cell in enumerate(row):
+                if cell == 1:
+                    queen_positions.append([row_idx, col_idx])
+        print(queen_positions)
 
 
 if __name__ == "__main__":
