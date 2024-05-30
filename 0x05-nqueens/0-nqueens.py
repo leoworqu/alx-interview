@@ -23,6 +23,7 @@ def is_safe(board, row, col, N):
             
     return True
 
+
 def solve_nqueens(N):
     if N < 4:
         print("N must be at least 4")
@@ -30,6 +31,7 @@ def solve_nqueens(N):
 
     board = [[0] * N for _ in range(N)]
     solutions = []
+
     
     def solve_util(row):
         if row == N:
@@ -46,12 +48,14 @@ def solve_nqueens(N):
     
     return solutions
 
+
 def print_solutions(N):
     solutions = solve_nqueens(N)
     for solution in solutions:
         for row in solution:
             print(row)
         print()
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
