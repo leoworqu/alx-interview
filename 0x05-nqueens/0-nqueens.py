@@ -60,6 +60,5 @@ if __name__ == "__main__":
         n = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
-        print()
         sys.exit(1)
     print_solutions(n)
