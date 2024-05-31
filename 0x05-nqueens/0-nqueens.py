@@ -20,7 +20,9 @@ def is_safe(board, row, col, n):
 
 def solve_n_queens(n):
     if n < 4:
-        raise ValueError("N must be at least 4")
+        print("N must be at least 4")
+        print()
+        sys.exit(1)
     board = [[0] * n for _ in range(n)]
     solutions = []
 
@@ -51,9 +53,13 @@ def print_solutions(n):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        raise ValueError("Usage: nqueens N")
+        print("Usage: nqueens N")
+        print()
+        sys.exit(1)
     try:
         n = int(sys.argv[1])
     except ValueError:
-        raise ValueError("N must be a number")
+        print("N must be a number")
+        print()
+        sys.exit(1)
     print_solutions(n)
