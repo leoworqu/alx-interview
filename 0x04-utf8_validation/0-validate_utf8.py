@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-validUTF8
+validate UTF8
 """
 
 
