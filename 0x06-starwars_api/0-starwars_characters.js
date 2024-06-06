@@ -14,7 +14,10 @@ async function printCharacters(movieId) {
         const characters = await getCharacters(movieId);
         for (let i = 0; i < characters.length; i++) {
             const characterResponse = await axios.get(characters[i]);
-            console.log(characterResponse.data.name);
+            process.stdout.write(characterResponse.data.name);
+            if (i !== characters.length - 1) {
+                process.stdout.write('\n');
+            }
         }
     } catch (error) {
         console.error("Error fetching characters:", error);
