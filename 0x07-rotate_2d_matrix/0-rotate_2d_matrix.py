@@ -15,9 +15,7 @@ def rotate_2d_matrix(matrix):
         list of list: The rotated matrix.
     """
 
-  
     n = len(matrix)
-
     def transpose_matrix():
         for i in range(n):
             for j in range(i, n):
