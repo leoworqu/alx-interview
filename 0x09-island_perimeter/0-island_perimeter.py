@@ -3,9 +3,7 @@
 
 
 def check_val(x):
-    """_summary_
-
-    Args:
+    """Args:
         n (_type_): _description_
 
     Returns:
